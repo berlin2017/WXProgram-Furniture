@@ -1,0 +1,60 @@
+<!--pages/home/home.wxml-->
+<view class='home_container'>
+  <scroll-view>
+    <input placeholder='搜索' confirm-type='search' class='input'></input>
+    <swiper indicator-dots='true' indicator-color='white' indicator-active-color='red' autoplay='true' circular='true'>
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" mode='scaleToFill' />
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <view class='navigation' wx:for="{{navigations}}" wx:for-item="item">
+      <view class="navigation_item" bindtap='onNavigationItemClick' data-index='{{item.index}}'>
+        <image src='{{item.image}}' class="navigation_item_image" mode='widthFix' />
+        <text class="navigation_item_name">{{item.title}}</text>
+      </view>
+    </view>
+
+     <view class="g-mall-content-img">
+      <image src='http://fuguangjun.0512iis.com/images/chuang/chuang9.jpg' mode='scaleToFill' class='content_image'></image>
+      <image src='http://fuguangjun.0512iis.com/images/chuang/chuang9.jpg' mode='scaleToFill' class='content_image'></image>
+    </view> 
+
+    <!-- <view class="mui-content-dingzhi" style="background-color:#fff">
+      <view class="mui-grid-view" wx:for="{{navigations}}">
+        <view class="mui-table-view-cell">
+          <image class="mui-media-object mui-dingzhi-img" src="http://fuguangjun.0512iis.com/images/shuzhuo.jpg" mode='scaleToFill'></image>
+          <view class="mui-media-body mui-dingzhi-txt">卧室</view>
+        </view>
+      </view>
+
+      <view class="mui-content-dingzhi-chanpin">定製</view>
+    </view> -->
+    <view class="content" style="background-color:#fff">
+      <view class="content_grid" wx:for="{{navigations}}">
+        <view class="content_grid_item">
+          <image class="content_item_iamge" src="http://fuguangjun.0512iis.com/images/shuzhuo.jpg" mode='widthFix'></image>
+          <view class="content_item_text">卧室</view>
+        </view>
+      </view>
+
+      <view class="content_dingzhi">定制</view>
+    </view>
+
+    <view class='h-desc'>
+      <text class='center_title'>精品推荐</text>
+    </view>
+
+     <view class="content" style="background-color:#fff">
+      <view class="content_grid" wx:for="{{navigations}}">
+        <view class="content_grid_item">
+          <image class="content_item_iamge2" src="http://fuguangjun.0512iis.com/images/shuzhuo.jpg" mode='widthFix'></image>
+          <view class="content_item_text2">喜上眉梢1.8M床</view>
+        </view>
+      </view>
+    </view>
+    <include src="../common/footer.wxml"/>
+  </scroll-view>
+</view>

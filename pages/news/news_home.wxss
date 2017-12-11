@@ -1,0 +1,39 @@
+/* pages/news/news_home.wxss */
+@import "../common/footer.wxss";
+.news_container {
+  width: 100%;
+}
+
+.news_item {
+  background: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 5px;
+}
+
+.news_item_title {
+  width: 100%;
+  color: #353535;
+  font-size: 18px;
+}
+
+.news_item_time {
+  width: 100%;
+  color: #8f8f94;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.news_item_content {
+  width: 100%;
+  color: #8f8f94;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.news_item_line {
+  margin-top: 10px;
+  background: gainsboro;
+  height: 2px;
+  width: 100%;
+}

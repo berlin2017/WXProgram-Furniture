@@ -1,0 +1,42 @@
+/* pages/utils/footer.wxss */
+
+.footer {
+  width: 100%;
+  margin-top: 1rem;
+  background: #f1f1f2;
+}
+
+.foot_btn {
+  width: 100%;
+}
+
+.btn_layout {
+  float: left;
+  width: 50%;
+  text-align: center;
+  background: #f1f1f2;
+}
+
+.btn_call {
+  float: center;
+  margin: 10px;
+  background: red;
+  color: white;
+}
+
+.address_layout {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 5% 1rem 5%;
+  padding-bottom: 0.5rem;
+}
+
+.address_tv {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #8f8f94;
+}

@@ -1,0 +1,18 @@
+<!--pages/news/news_home.wxml-->
+<view class='news_container'>
+  <view wx:for="{{list}}">
+    <view class='news_item'>
+      <view style='width:100%;'>
+        <text class='news_item_title'>红状元家具教您如何挑选红木家具</text>
+      </view>
+      <view style='width:100%;'>
+        <text class='news_item_time'>2017-11-28</text>
+      </view>
+      <view style='width:100%;'>
+        <text class='news_item_content'>  苏州红木家具在我们的生活中广受喜爱，但许多购买这些产品的红木爱好者和消费者都不敢购买家具市场，因为家具市场上的“深水”。</text>
+      </view>
+      <view class='news_item_line'></view>
+    </view>
+  </view>
+  <include src="../common/footer.wxml"/>
+</view>

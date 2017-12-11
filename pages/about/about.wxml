@@ -1,0 +1,44 @@
+<!--pages/about/about.wxml-->
+<view class='about_container'>
+
+  <view class='content'>
+    <image class='top_image' src='http://fuguangjun.0512iis.com/images/home-about-us.jpg' mode='widthFix'></image>
+
+    <text class='content_title'>苏州红状元家具股份有限公司</text>
+    <text class='content_text'>苏州红状元家具股份有限公司主营：红木家具价格、江苏红木家具、红木家具定制、蠡口红木、苏州红木家具、红酸枝家具、红酸枝红木家具等，我们是一家秉承中华古典文化的家具制造厂家，以传承明清式家具为经营理念，集设计、研发、生产、销售于一体的专业型红木家具企业。公司专业生产客厅、餐厅、书房、卧房、中堂以及定制等六大精品系列的明清风格古典红木家具,品种达百余款,同时承接酒店、宾馆、别墅室内红木装饰设计、生产及来样定制。...</text>
+    <view style='width:95%;margin-top:10px;background:#999;padding:10px;'>
+      <text class='nearbg-title'>公司展厅</text>
+    </view>
+
+    <view class='content_bottom' style='width:100%;margin-top:10px;align-items: center; justify-content: space-between; display: flex;flex-direction: column;'>
+      <image src='http://fuguangjun.0512iis.com/images/zhangting/W3A0571.jpg' mode='widthFix' style='width:100%'></image>
+      <text class='image_name'>公司门店</text>
+      <image src='http://fuguangjun.0512iis.com/images/zhangting/W3A0578.jpg' mode='widthFix' style='width:100%'></image>
+      <text class='image_name'>公司展厅</text>
+      <image src='http://fuguangjun.0512iis.com/images/zhangting/W3A0870.jpg' mode='widthFix' style='width:100%'></image>
+      <text class='image_name'>师傅做工</text>
+
+      <view style='width:100%'>
+        <view style='width:100%'>
+          <text class='content_text'>苏州红状元家具股份有限公司，是一家秉承中华古典文化的红木家具制造厂家，以传承明清式家具为经营理念，集设计、研发、生产、销售于一体的专业型家具企业。</text>
+        </view>
+        <view style='width:100%'>
+          <text class='content_text'>苏州红状元</text>
+          <text class='content_span'>红木家具</text>
+          <text class='content_text'>所有产品用材以老挝大红酸枝木为主，专业生产</text>
+          <text class='content_span'>苏州红木家具</text>
+          <text class='content_text'>，严格按照国家执行标准QB/T2385-1938深色名贵硬木家具标准生产。秉承中式家具科学严谨的榫卯结构及内涵，充分发挥了设计者的思想理念。经过蒸煮，脱脂，烘干，定型等多道工序严格处理，精雕细琢而成，款式新颖，高贵典雅，体现出每一件产品的传统的意蕴品味和独特的审美价值。</text>
+        </view>
+        <view style='width:100%'>
+          <text class='content_text'>我公司专业生产苏州客厅红木家具、大红酸枝餐厅家具、苏州</text>
+          <text class='content_span'>红木书房家具定制、卧房红木家具定制</text>
+          <text class='content_text'>>、中堂大红酸枝红木家具等六大精品系列的明清风格古典</text>
+          <text class='content_span'>红木家具</text>
+          <text class='content_text'>,品种达百余款, 产品畅销国内外,同时承接公司、酒店、宾馆、别墅等室内红木家具的设计、生产及个性定制。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <include src="../common/footer.wxml"/>
+</view>

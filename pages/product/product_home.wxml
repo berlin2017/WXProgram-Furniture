@@ -1,0 +1,25 @@
+<!--pages/product/product_home.wxml-->
+<view class='product_container'>
+
+  <view class='navigation'>
+    <view class='navigation_list' wx:for='{{list}}'>
+      <view class='navigation_item'>
+        <text class='navigation_item_text'>喜上眉梢1.8M床+顶箱柜（雕花）</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='main_layout' bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" style="{{translate}}">
+    <view class='product_grid' wx:for='{{list}}'>
+      <view class='product_item'>
+        <image class='product_item_image' src='http://fuguangjun.0512iis.com/images/201709291057168251568.jpg' mode='widthFix'></image>
+        <text class='product_item_name'>卧房家具</text>
+      </view>
+    </view>
+
+    <include src="../common/footer.wxml" />
+  </view>
+
+
+
+</view>

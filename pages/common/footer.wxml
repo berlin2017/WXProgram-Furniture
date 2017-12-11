@@ -1,0 +1,23 @@
+<!--pages/utils/footer.wxml-->
+<view class='footer'>
+
+  <view class="foot_btn">
+    <view class='btn_layout'>
+      <button class='btn_call' bindtap='call'>电话热线</button>
+    </view>
+    <view class='btn_layout'>
+      <button class='btn_call'>公司地址</button>
+    </view>
+  </view>
+
+  <view class='address_layout'>
+    <text class='address_tv'>苏州红状元家具股份有限公司</text>
+    <text class='address_tv'>联系人：李明星</text>
+    <text class='address_tv'>联系电话：18913752098</text>
+    <text class='address_tv'>传真：0512-66159928</text>
+    <text class='address_tv'>公司邮箱: 352380783@qq.com</text>
+    <text class='address_tv'>厂址：苏州市相城区渭塘镇苏渭路58号</text>
+    <text class='address_tv'>店址：苏州市相城区相城大道金利源C-24、C-26号</text>
+  </view>
+
+</view>

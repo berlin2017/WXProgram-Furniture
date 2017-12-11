@@ -1,0 +1,54 @@
+/* pages/about/about.wxss */
+@import "../common/footer.wxss";
+.about_container {
+  padding: 10px;
+}
+
+.content {
+  width: 100%;
+}
+
+.top_image {
+  width: 100%;
+}
+
+.content_title {
+  margin: 0.1rem 0.2rem;
+  display: -webkit-box;
+  text-align: center;
+  font-size: 20px;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
+
+.content_text {
+  font-size: 15px;
+  color: #8f8f94;
+  margin: 0.1rem 0.2rem;
+}
+
+.nearbg-title {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.image_name{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  width: 100%;
+  font-size: 15px;
+  color: #8f8f94;
+}
+
+.content_span{
+  font-size: 15px;
+  color: red;
+  font-weight: bold;
+  margin: 0.1rem 0.2rem;
+}
