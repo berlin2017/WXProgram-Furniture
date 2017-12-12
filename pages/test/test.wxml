@@ -1,0 +1,16 @@
+<!--pages/test/test.wxml-->
+<view id='id-main-page' class='main-page' animation='{{animationData}}' style='left:{{mainPageLeft}}rpx;' bindtouchstart='onMainPageTouchstart' bindtouchmove='onMainPageTouchmove' bindtouchend='onMainPageTouchend' bindtap='onMainPageTap'>
+  <view class='product_grid' wx:for='{{list}}'>
+    <view class='product_item'>
+      <image class='product_item_image' src='http://fuguangjun.0512iis.com/images/201709291057168251568.jpg' mode='widthFix'></image>
+      <text class='product_item_name'>卧房家具</text>
+    </view>
+  </view>
+</view>
+<view class='drawer-menu' animation='{{animationData2}}' style='left:{{drawerMenuLeft}}rpx;'>
+  <view class='navigation_list' wx:for='{{list}}'>
+      <view class='navigation_item' bindtap='toDetail'>
+        <text class='navigation_item_text'>喜上眉梢1.8M床+顶箱柜（雕花）</text>
+      </view>
+    </view>
+</view>

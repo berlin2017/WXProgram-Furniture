@@ -5,7 +5,7 @@
     <swiper indicator-dots='true' indicator-color='white' indicator-active-color='red' autoplay='true' circular='true'>
       <block wx:for="{{imgUrls}}">
         <swiper-item>
-          <image src="{{item}}" class="slide-image" mode='scaleToFill' />
+          <image src="{{item}}" class="slide-image" mode='scaleToFill' bindtap='toDetail' />
         </swiper-item>
       </block>
     </swiper>
@@ -16,11 +16,10 @@
         <text class="navigation_item_name">{{item.title}}</text>
       </view>
     </view>
-
-     <view class="g-mall-content-img">
+    <view class="g-mall-content-img">
       <image src='http://fuguangjun.0512iis.com/images/chuang/chuang9.jpg' mode='scaleToFill' class='content_image'></image>
       <image src='http://fuguangjun.0512iis.com/images/chuang/chuang9.jpg' mode='scaleToFill' class='content_image'></image>
-    </view> 
+    </view>
 
     <!-- <view class="mui-content-dingzhi" style="background-color:#fff">
       <view class="mui-grid-view" wx:for="{{navigations}}">
@@ -47,14 +46,14 @@
       <text class='center_title'>精品推荐</text>
     </view>
 
-     <view class="content" style="background-color:#fff">
+    <view class="content" style="background-color:#fff">
       <view class="content_grid" wx:for="{{navigations}}">
-        <view class="content_grid_item">
+        <view class="content_grid_item" bindtap='toDetail'>
           <image class="content_item_iamge2" src="http://fuguangjun.0512iis.com/images/shuzhuo.jpg" mode='widthFix'></image>
           <view class="content_item_text2">喜上眉梢1.8M床</view>
         </view>
       </view>
     </view>
-    <include src="../common/footer.wxml"/>
+    <include src="../common/footer.wxml" />
   </scroll-view>
 </view>

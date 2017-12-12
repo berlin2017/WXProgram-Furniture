@@ -1,0 +1,73 @@
+/* pages/test/test.wxss */
+.main-page {
+ width:100%;
+ /* height:2000rpx; */
+ position: absolute;
+ top: 0;
+ left: 0;
+ /* padding: 200rpx 0; */
+}
+
+.drawer-menu {
+ width: 80%;
+ height: 100%;
+ position: absolute;
+ top: 0;
+ background: whitesmoke;
+ z-index: 800;
+}
+
+/* pages/product/product_home.wxss */
+@import "../common/footer.wxss";
+
+.product_grid {
+  display: grid;
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; /* Firefox */
+  -webkit-box-sizing: border-box; /* Safari */
+  padding: 2px;
+}
+
+.product_item {
+  background: white;
+  font-size: 17px;
+  display: inline-block;
+  /* margin-right: -4px; */
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  transform-style: preserve-3d;
+  padding-bottom: 10px;
+}
+
+.product_item_image {
+  width: 100%;
+}
+.product_container{
+   background: whitesmoke;
+}
+
+.main_layout {
+  background: whitesmoke;
+  position: absolute;
+  width: 100%;
+  float: left;
+}
+
+.navigation {
+  position: absolute;
+  background: whitesmoke;
+  width: 100%;
+  float: left;
+}
+
+.navigation_item {
+  padding: 10px;
+}
+
+.navigation_item_text {
+  color: red;
+  font-size: 12px;
+}

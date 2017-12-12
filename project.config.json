@@ -8,9 +8,9 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.6.6",
-	"appid": "touristappid",
-	"projectname": "wx",
+	"libVersion": "1.7.0",
+	"appid": "wx2c18fc925f129980",
+	"projectname": "%E8%8B%8F%E5%B7%9E%E7%BA%A2%E7%8A%B6%E5%85%83%E5%AE%B6%E5%85%B7",
 	"condition": {
 		"search": {
 			"current": -1,

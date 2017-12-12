@@ -1,4 +1,5 @@
 // pages/home/home.js
+var footer = require('../common/footer.js')
 Page({
 
   /**
@@ -62,9 +63,15 @@ Page({
     }
   },
 
+  toDetail:function(e){
+    wx.navigateTo({
+      url: '../product/detail',
+    })
+  },
+
   call: function () {
     wx.makePhoneCall({
-      phoneNumber: '15605662015',
+      phoneNumber: this.data.phone,
     })
   },
 
@@ -72,7 +79,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    footer.getInfo();
   },
 
   /**

@@ -1,0 +1,11 @@
+/* pages/product/detail.wxss */
+@import "/wxParse/wxParse.wxss";
+@import "../common/footer.wxss";
+
+.nearbg-title {
+    background: #999;
+    color: #fff;
+    padding: .2rem;
+    font-size: 20px;
+    border-bottom: 1px solid #eee;
+}

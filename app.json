@@ -4,9 +4,11 @@
     "pages/about/about",
     "pages/news/news_home",
     "pages/product/product_home",
+    "pages/product/detail",
     "pages/common/footer",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",
