@@ -1,5 +1,6 @@
 /* pages/about/about.wxss */
 @import "../common/footer.wxss";
+@import "/wxParse/wxParse.wxss";
 .about_container {
   padding: 10px;
 }

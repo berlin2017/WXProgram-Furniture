@@ -1,11 +1,11 @@
 <!--pages/home/home.wxml-->
 <view class='home_container'>
   <scroll-view>
-    <input placeholder='搜索' confirm-type='search' class='input'></input>
+    <input placeholder='搜索' confirm-type='search' class='input' bindconfirm='search'></input>
     <swiper indicator-dots='true' indicator-color='white' indicator-active-color='red' autoplay='true' circular='true'>
-      <block wx:for="{{imgUrls}}">
+      <block wx:for="{{homeInfo.banner}}">
         <swiper-item>
-          <image src="{{item}}" class="slide-image" mode='scaleToFill' bindtap='toDetail' />
+          <image src="{{item.thumb}}" class="slide-image" mode='scaleToFill' bindtap='toDetail' data-url='{{item.url}}' data-name='{{item.name}}'/>
         </swiper-item>
       </block>
     </swiper>
@@ -16,9 +16,9 @@
         <text class="navigation_item_name">{{item.title}}</text>
       </view>
     </view>
-    <view class="g-mall-content-img">
-      <image src='http://fuguangjun.0512iis.com/images/chuang/chuang9.jpg' mode='scaleToFill' class='content_image'></image>
-      <image src='http://fuguangjun.0512iis.com/images/chuang/chuang9.jpg' mode='scaleToFill' class='content_image'></image>
+    <view class="g-mall-content-img" wx:for="{{homeInfo.ads}}" wx:for-item="item" bindtap='toDetail' data-url='{{item.url}}' data-name='{{item.name}}'>
+      <image src='{{item.thumb}}' mode='scaleToFill' class='content_image'></image>
+       <!-- <image src='http://fuguangjun.0512iis.com/images/chuang/chuang9.jpg' mode='scaleToFill' class='content_image'></image>  -->
     </view>
 
     <!-- <view class="mui-content-dingzhi" style="background-color:#fff">
@@ -32,10 +32,10 @@
       <view class="mui-content-dingzhi-chanpin">定製</view>
     </view> -->
     <view class="content" style="background-color:#fff">
-      <view class="content_grid" wx:for="{{navigations}}">
-        <view class="content_grid_item">
-          <image class="content_item_iamge" src="http://fuguangjun.0512iis.com/images/shuzhuo.jpg" mode='widthFix'></image>
-          <view class="content_item_text">卧室</view>
+      <view class="content_grid" wx:for="{{homeInfo.nav}}">
+        <view class="content_grid_item" bindtap='toProductList'data-id='{{item.id}}' data-name='{{item.name}}'>
+          <image class="content_item_iamge" src="{{item.thumb}}" mode='widthFix'></image>
+          <view class="content_item_text">{{item.name}}</view>
         </view>
       </view>
 
@@ -47,10 +47,10 @@
     </view>
 
     <view class="content" style="background-color:#fff">
-      <view class="content_grid" wx:for="{{navigations}}">
-        <view class="content_grid_item" bindtap='toDetail'>
-          <image class="content_item_iamge2" src="http://fuguangjun.0512iis.com/images/shuzhuo.jpg" mode='widthFix'></image>
-          <view class="content_item_text2">喜上眉梢1.8M床</view>
+      <view class="content_grid" wx:for="{{homeInfo.recommend}}">
+        <view class="content_grid_item" bindtap='toDetail' data-url='{{item.url}}' data-name='{{item.name}}'>
+          <image class="content_item_iamge2" src="{{item.thumb}}" mode='widthFix'></image>
+          <view class="content_item_text2">{{item.name}}</view>
         </view>
       </view>
     </view>

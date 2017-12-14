@@ -1,11 +1,13 @@
 // pages/product/product_home.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [{}, {}, {}, {}],
+    list: [],
+    navigations:[],
     // open: false,
     // mark: 0,
     // newmark: 0,
@@ -26,10 +28,23 @@ Page({
     endX: 0,
   },
 
+  call: function () {
+    wx.makePhoneCall({
+      phoneNumber: app.globalData.addressInfo.dianhua,
+    })
+  },
+
+  toProductList: function (e) {
+    var id = e.currentTarget.dataset.id;
+    var name = e.currentTarget.dataset.name;
+    wx.navigateTo({
+      url: '../product/product_list' + '?id=' + id + '&name=' + name,
+    })
+  },
 
   toDetail: function (e) {
     wx.navigateTo({
-      url: 'detail',
+      url: 'detail' + '?product=' + e.currentTarget.dataset.id + '&name=' + e.currentTarget.dataset.name,
     })
   },
   tap_start: function (e) {
@@ -88,87 +103,7 @@ Page({
       });
     }
   },
-
-
-  // tap_start: function (e) {
-  //   this.data.mark = this.data.newmark = e.touches[0].pageX;
-  //   if (this.data.staus == 1) {
-  //     // staus = 1指默认状态
-  //     this.data.startmark = e.touches[0].pageX;
-  //   } else {
-  //     // staus = 2指屏幕滑动到右边的状态
-  //     this.data.startmark = e.touches[0].pageX;
-  //   }
-
-  // },
-  // tap_drag: function (e) {
-  //   /*
-  //    * 手指从左向右移动
-  //    * @newmark是指移动的最新点的x轴坐标 ， @mark是指原点x轴坐标
-  //    */
-  //   this.data.newmark = e.touches[0].pageX;
-  //   if (this.data.mark < this.data.newmark) {
-  //     if (this.data.staus == 1) {
-  //       if (this.data.windowWidth * 0.75 > Math.abs(this.data.newmark - this.data.startmark)) {
-  //         this.setData({
-  //           translate: 'transform: translateX(' + (this.data.newmark - this.data.startmark) + 'px)'
-  //         })
-  //       }
-  //     }
-
-  //   }
-  //   /*
-  //    * 手指从右向左移动
-  //    * @newmark是指移动的最新点的x轴坐标 ， @mark是指原点x轴坐标
-  //    */
-  //   if (this.data.mark > this.data.newmark) {
-  //     if (this.data.staus == 1 && (this.data.newmark - this.data.startmark) > 0) {
-  //       this.setData({
-  //         translate: 'transform: translateX(' + (this.data.newmark - this.data.startmark) + 'px)'
-  //       })
-  //     } else if (this.data.staus == 2 && this.data.startmark - this.data.newmark < this.data.windowWidth * 0.75) {
-  //       this.setData({
-  //         translate: 'transform: translateX(' + (this.data.newmark + this.data.windowWidth * 0.75 - this.data.startmark) + 'px)'
-  //       })
-  //     }
-
-  //   }
-
-  //   this.data.mark = this.data.newmark;
-
-  // },
-  // tap_end: function (e) {
-  //   console.log("滑动结束");
-  //   if (this.data.staus == 1 && this.data.startmark < this.data.newmark) {
-  //     if (Math.abs(this.data.newmark - this.data.startmark) < (this.data.windowWidth * 0.2)) {
-  //       this.setData({
-  //         translate: 'transform: translateX(0px)'
-  //       })
-  //       this.data.staus = 1;
-  //     } else {
-  //       this.setData({
-  //         translate: 'transform: translateX(' + this.data.windowWidth * 0.75 + 'px)'
-  //       })
-  //       this.data.staus = 2;
-  //     }
-  //   } else {
-  //     if (Math.abs(this.data.newmark - this.data.startmark) < (this.data.windowWidth * 0.2)) {
-  //       this.setData({
-  //         translate: 'transform: translateX(' + this.data.windowWidth * 0.75 + 'px)'
-  //       })
-  //       this.data.staus = 2;
-  //     } else {
-  //       console.log("恢复原样");
-  //       this.setData({
-  //         translate: 'transform: translateX(0px)'
-  //       })
-  //       this.data.staus = 1;
-  //     }
-  //   }
-
-  //   this.data.mark = 0;
-  //   this.data.newmark = 0;
-  // },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -180,7 +115,54 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.loadPage();
+  },
 
+  loadPage:function(){
+    wx.showLoading({
+      title: '加载中...',
+    })
+    var that = this;
+
+    if (app.globalData.addressInfo) {
+      that.setData({
+        info: app.globalData.addressInfo
+      })
+    }
+
+    wx.request({
+      url: 'https://hzy.api.szjisou.com/?service=App.Hong.GetCategory',
+      data: {
+        pid: 3,
+        table: '2_share_category',
+      },
+      method: 'GET',
+      success: function (res) {
+        that.setData({
+          navigations: res.data.data.result,
+        });
+       
+      },
+      fail: function (res) {
+      }
+    })
+
+    wx.request({
+      url: 'https://hzy.api.szjisou.com/?service=App.Hong.Index',
+      data: {
+        table: '2_product',
+      },
+      method: 'GET',
+      success: function (res) {
+        that.setData({
+          // navigations: res.data.data.result,
+          list: res.data.data.result
+        });
+      },
+      fail: function (res) {
+      }
+    })
+    wx.hideLoading();
   },
 
   /**
@@ -208,7 +190,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.loadPage();
+    wx.stopPullDownRefresh();
   },
 
   /**

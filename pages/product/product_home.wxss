@@ -25,7 +25,19 @@
 
 .product_item_image {
   width: 100%;
+  height: 300rpx;
 }
+
+.product_item_name{
+   text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  font-size: 15px;
+}
+
 .product_container{
    background: whitesmoke;
 }

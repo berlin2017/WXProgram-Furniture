@@ -11,7 +11,7 @@
   </view>
 
   <view class='address_layout'>
-    <text class='address_tv'>{{address}}</text>
+    <text class='address_tv'>{{info.dibu}}</text>
   </view>
 
 </view>

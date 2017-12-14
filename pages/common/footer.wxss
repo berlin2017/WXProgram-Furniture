@@ -18,7 +18,8 @@
 }
 
 .btn_call {
-  float: center;
+  float: left;
+  width: 90%;
   margin: 10px;
   background: red;
   color: white;

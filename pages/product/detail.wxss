@@ -2,6 +2,11 @@
 @import "/wxParse/wxParse.wxss";
 @import "../common/footer.wxss";
 
+.detail_container{
+  padding: 10px;
+  background: whitesmoke;
+}
+
 .nearbg-title {
     background: #999;
     color: #fff;

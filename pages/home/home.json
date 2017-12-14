@@ -1,4 +1,6 @@
 {
-  "navigationBarTitleText": "蘇州宏狀元家具"
-  
+  "navigationBarTitleText": "苏州红状元家具",
+  "window": {
+    "enablePullDownRefresh": true
+  }
 }

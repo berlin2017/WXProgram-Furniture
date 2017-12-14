@@ -1,11 +1,13 @@
 // pages/home/home.js
-var footer = require('../common/footer.js')
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    info: {},
+    homeInfo:{},
     imgUrls: [
       'http://fuguangjun.0512iis.com/images/dianshigui.jpg',
       'http://fuguangjun.0512iis.com/images/zhu3.jpg',
@@ -64,14 +66,50 @@ Page({
   },
 
   toDetail:function(e){
+    var url = e.currentTarget.dataset.url.trim();
+    var index = url.indexOf('=');
+    var typeName = url.substring(0,index);
+    var id = url.substring(index + 1, url.length);
     wx.navigateTo({
-      url: '../product/detail',
+      url: '../product/detail' + '?' + e.currentTarget.dataset.url+'&name='+e.currentTarget.dataset.name,
     })
   },
 
   call: function () {
+    var that = this;
     wx.makePhoneCall({
-      phoneNumber: this.data.phone,
+      phoneNumber: that.data.info.dianhua,
+    })
+  },
+
+  toProductList:function(e){
+    var id = e.currentTarget.dataset.id;
+    var name = e.currentTarget.dataset.name;
+    wx.navigateTo({
+      url: '../product/product_list'+'?id='+id+'&name='+name,
+    })
+  },
+
+  search:function(e){
+    wx.showLoading({
+      title: '搜索中',
+    })
+    wx.request({
+      url: 'https://hzy.api.szjisou.com/?service=App.Hong.Search',
+      data: {
+        siteid: '2',
+        keyword:e.detail.value,
+      },
+      method: 'GET',
+      success: function (res) {
+        wx.hideLoading();
+        wx.navigateTo({
+          url: '../product/product_list' + '?list=' + res.data.data.result + '&name=' + e.detail.value,
+        })
+      },
+      fail:function(res){
+        wx.hideLoading();
+      }
     })
   },
 
@@ -79,16 +117,44 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    footer.getInfo();
+    // if (app.globalData.addressInfo) {
+    //   this.setData({
+    //     info: app.globalData.addressInfo
+    //   })
+    // } 
+    console.log(this.data.info);
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    var that = this;
+    if (app.globalData.addressInfo!=null) {
+      that.setData({
+        info: app.globalData.addressInfo
+      })
+    }
+    this.loadPage();
   },
+  
+  loadPage:function(){
+    var that = this;
 
+    wx.request({
+      url: 'https://hzy.api.szjisou.com/?service=App.Hong.IndexInfo',
+      data: {
+        service: 'App.Hong.IndexInfo',
+        siteid: '2'
+      },
+      method: 'POST',
+      success: function (res) {
+        that.setData({
+          homeInfo: res.data.data.result
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -114,7 +180,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.loadPage();
   },
 
   /**

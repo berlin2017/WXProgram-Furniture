@@ -20,7 +20,7 @@ App({
           wx.getUserInfo({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
+              this.globalData.userInfo = ddwrrer4334ff43r34r34f2434r34r34r34r34sßßß.userInfo
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
@@ -32,8 +32,32 @@ App({
         }
       }
     })
+
+    //
+    var that = this;
+    wx.request({
+      
+      url: "https://hzy.api.szjisou.com/?service=App.Hong.GetBase",
+      method: "POST",
+      data: {
+        service: "App.Hong.GetBase",
+        table: "2_block",
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res);
+        that.globalData.addressInfo = res.data.data.result;
+      },
+      fail: function (res) {
+
+      },
+    })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    addressInfo: null
   }
+
 })

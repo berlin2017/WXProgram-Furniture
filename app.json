@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/common/map",
     "pages/home/home",
     "pages/about/about",
     "pages/news/news_home",
     "pages/product/product_home",
+    "pages/product/product_list",
     "pages/product/detail",
     "pages/common/footer",
     "pages/index/index",
@@ -12,9 +14,10 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh":"true"
   },
   "tabBar": {
     "list": [

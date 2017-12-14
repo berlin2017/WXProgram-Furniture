@@ -1,0 +1,14 @@
+<!--pages/product/product_list.wxml-->
+<view class='product_list_container'>
+  <view class='product_list' wx:for='{{list}}'>
+    <view class='product_item' bindtap='toDetail' data-id='{{item.id}}' data-name='{{item.title}}'>
+      <view class='item_imageview'><image src='{{item.thumb}}' class='item_image' mode='scaleToFill'></image></view>
+      
+      <view class='item_text'>
+        <text class='item_title'>{{item.title}}</text>
+        <text class='item_detail'>{{item.description}}</text>
+      </view>
+    </view>
+  </view>
+   <include src="../common/footer.wxml" />
+</view>
