@@ -6,7 +6,7 @@
       <button class='btn_call' bindtap='call'>电话热线</button>
     </view>
     <view class='btn_layout'>
-      <button class='btn_call'>公司地址</button>
+      <button class='btn_call' bindtap='goMap'>公司地址</button>
     </view>
   </view>
 

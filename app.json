@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/common/map",
     "pages/home/home",
     "pages/about/about",
     "pages/news/news_home",
+    "pages/common/map",
     "pages/product/product_home",
     "pages/product/product_list",
     "pages/product/detail",
@@ -30,20 +30,20 @@
       {
         "pagePath": "pages/product/product_home",
         "text": "产品",
-        "iconPath": "resources/images/icon_home.png",
-        "selectedIconPath": "resources/images/icon_home_light.png"
+        "iconPath": "resources/images/icon_product.png",
+        "selectedIconPath": "resources/images/icon_product_light.png"
       },
       {
         "pagePath": "pages/news/news_home",
         "text": "新闻",
-        "iconPath": "resources/images/icon_home.png",
-        "selectedIconPath": "resources/images/icon_home_light.png"
+        "iconPath": "resources/images/icon_news.png",
+        "selectedIconPath": "resources/images/icon_news_light.png"
       },
       {
         "pagePath": "pages/about/about",
         "text": "联系我们",
-        "iconPath": "resources/images/icon_home.png",
-        "selectedIconPath": "resources/images/icon_home_light.png"
+        "iconPath": "resources/images/icon_user.png",
+        "selectedIconPath": "resources/images/icon_user_light.png"
       }
     ]
   }

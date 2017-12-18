@@ -16,6 +16,11 @@ Page({
     })
   },
 
+  goMap: function () {
+    wx.navigateTo({
+      url: '../common/map',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

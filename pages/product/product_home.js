@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isShow:false,
+    height:0,
     list: [],
     navigations:[],
     // open: false,
@@ -28,6 +30,12 @@ Page({
     endX: 0,
   },
 
+  goMap: function () {
+    wx.navigateTo({
+      url: '../common/map',
+    })
+  },
+
   call: function () {
     wx.makePhoneCall({
       phoneNumber: app.globalData.addressInfo.dianhua,
@@ -47,6 +55,32 @@ Page({
       url: 'detail' + '?product=' + e.currentTarget.dataset.id + '&name=' + e.currentTarget.dataset.name,
     })
   },
+
+  showNavi:function(){
+    if (this.data.isShow){
+      var animation = wx.createAnimation({
+        duration: 200,
+      })
+      animation.translateX(0).step();
+      this.setData({
+        isShow:false,
+        animationData: animation,
+        animationData2: animation,
+      });
+    }else{
+      var animation = wx.createAnimation({
+        duration: 100,
+      })
+      animation.translateX(0.8 * wx.getSystemInfoSync().windowWidth).step();
+      this.setData({
+        isShow: true,
+        animationData: animation,
+        animationData2: animation,
+      });
+    }
+    
+  },
+
   tap_start: function (e) {
     this.data.startX = e.touches[0].pageX;
   },
@@ -75,6 +109,7 @@ Page({
       })
       animation.translateX(0).step();
       this.setData({
+        isShow: false,
         animationData: animation,
         animationData2: animation,
       });
@@ -89,6 +124,7 @@ Page({
       })
       animation.translateX(0.8 * wx.getSystemInfoSync().windowWidth).step();
       this.setData({
+        isShow: true,
         animationData: animation,
         animationData2: animation,
       });
@@ -98,6 +134,7 @@ Page({
       })
       animation.translateX(0).step();
       this.setData({
+        isShow: false,
         animationData: animation,
         animationData2: animation,
       });
@@ -115,6 +152,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.setData({
+      height: wx.getSystemInfoSync().windowHeight
+    });
     this.loadPage();
   },
 

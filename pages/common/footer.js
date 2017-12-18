@@ -18,4 +18,10 @@ Page({
       phoneNumber: that.data.phone,
     })
   },
+
+  goMap: function () {
+    wx.navigateTo({
+      url: '../common/map',
+    })
+  },
 })

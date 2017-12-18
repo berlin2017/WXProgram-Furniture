@@ -1,8 +1,31 @@
 <!--pages/product/detail.wxml-->
 <view class='detail_container'>
 
+<view class='title_layout'>
+  <view class='title_name'>{{title}}</view>
+ 
+</view>
+ <view>
+    <view class='title_from'>{{detailInfo.author}}</view>
+    <view class='title_time'>{{detailInfo.inputtime1}}</view>
+  </view>
+
+<view style='padding: 10px;'>
 <import src="../..//wxParse/wxParse.wxml"/>
 <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
 
+<view class='product_info' style='width:100%' wx:if='{{isProduct}}'>
+  <view class='product_text'>产地：{{detailInfo.chandi}}\n</view>
+  <view class='product_text'>品牌：{{detailInfo.pinpai}}\n</view>
+  <view class='product_text'>产品系列：{{detailInfo.chanpinxilie}}\n</view>
+  <view class='product_text'>产品风格：{{detailInfo.cpfg}}\n</view>
+  <view class='product_text'>产品材质：{{detailInfo.cpcz}}\n</view>
+  <view class='product_text'>产品尺寸：{{detailInfo.cpcc}}\n</view>
+  <view class='product_text'>温馨提示：{{detailInfo.wenxintishi}}\n</view>
+  <view class='product_text'>Abstract：{{detailInfo.abstract}}\n</view>
+   <view class='product_text'>描述：{{detailInfo.description}}\n</view>
+</view>
 <include src="../common/footer.wxml"/>
+
+</view>
 </view>

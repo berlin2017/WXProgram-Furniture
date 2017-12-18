@@ -23,20 +23,26 @@ Page({
       },
       {
         index: 1,
-        image: 'http://fuguangjun.0512iis.com/images/i5.png',
+        image: 'http://fuguangjun.0512iis.com/images/i8.png',
         title: '新闻动态',
       },
       {
         index: 2,
-        image: 'http://fuguangjun.0512iis.com/images/i5.png',
+        image: 'http://fuguangjun.0512iis.com/images/i3.png',
         title: '产品分类',
       },
       {
         index: 3,
-        image: 'http://fuguangjun.0512iis.com/images/i5.png',
+        image: 'http://fuguangjun.0512iis.com/images/i11.png',
         title: '联系电话',
       },
     ],
+  },
+
+  goMap:function(){
+    wx.navigateTo({
+      url: '../common/map',
+    })
   },
 
   onNavigationItemClick: function (e) {
@@ -90,26 +96,15 @@ Page({
     })
   },
 
-  search:function(e){
-    wx.showLoading({
-      title: '搜索中',
+  toProductHome:function(){
+    wx.switchTab({
+      url: '../product/product_home',
     })
-    wx.request({
-      url: 'https://hzy.api.szjisou.com/?service=App.Hong.Search',
-      data: {
-        siteid: '2',
-        keyword:e.detail.value,
-      },
-      method: 'GET',
-      success: function (res) {
-        wx.hideLoading();
-        wx.navigateTo({
-          url: '../product/product_list' + '?list=' + res.data.data.result + '&name=' + e.detail.value,
-        })
-      },
-      fail:function(res){
-        wx.hideLoading();
-      }
+  },
+
+  search:function(e){
+    wx.navigateTo({
+      url: '../product/product_list' + '?keyword=' + e.detail.value + '&name=' + e.detail.value,
     })
   },
 

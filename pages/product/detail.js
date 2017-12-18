@@ -10,12 +10,19 @@ Page({
    */
 
   data: {
+    isProduct:false,
     detailInfo: [],
     info:{},
     table_name:null,
     id:0,
+    title:'苏州红木家具',
   },
 
+  goMap: function () {
+    wx.navigateTo({
+      url: '../common/map',
+    })
+  },
 
   call: function () {
     wx.makePhoneCall({
@@ -27,8 +34,12 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: options.name,
+      title: '详情',
     })
+
+    this.setData({
+      title: options.name,
+    });
 
     var that = this;
 
@@ -38,6 +49,9 @@ Page({
     } else {
       that.data.id = options.product;
       that.data.table_name = '2_product';
+      that.setData({
+        isProduct:true,
+      });
     }
     that.loadPage();
     
@@ -61,9 +75,6 @@ Page({
         })
         console.log(res);
         WxParse.wxParse('article', 'html', res.data.data.result.content, that, 5);
-        wx.setNavigationBarTitle({
-          title: res.data.data.result.title,
-        })
       }
     })
   },

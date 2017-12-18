@@ -39,7 +39,7 @@
         </view>
       </view>
 
-      <view class="content_dingzhi">定制</view>
+      <view class="content_dingzhi" bindtap='toProductHome'>定制</view>
     </view>
 
     <view class='h-desc'>

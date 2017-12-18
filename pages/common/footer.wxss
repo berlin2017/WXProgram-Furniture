@@ -4,6 +4,7 @@
   width: 100%;
   margin-top: 1rem;
   background: #f1f1f2;
+  overflow: hidden;
 }
 
 .foot_btn {

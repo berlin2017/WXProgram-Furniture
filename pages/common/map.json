@@ -1,1 +1,6 @@
-{}
+{
+  "navigationBarTitleText": "苏州红木家具店",
+  "window": {
+    "enablePullDownRefresh": false
+  }
+}

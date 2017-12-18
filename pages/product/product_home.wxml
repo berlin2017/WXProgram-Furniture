@@ -1,6 +1,13 @@
 <!--pages/product/product_home.wxml-->
 <view class='product_container'>
 
+  <view class='title_layout' bindtap='showNavi'>
+    <text class='title_name'>产品</text>
+    <image src='../../resources/images/ic_more.png' class='title_image' ></image>
+  </view>
+
+  <scroll-view class='scrollview' scroll-y='true' style='height:{{height}}px'>
+
   <view class='navigation' style='left:{{drawerMenuLeft}}rpx;'animation='{{animationData2}}'>
     <view class='navigation_list' wx:for='{{navigations}}'>
       <view class='navigation_item'bindtap='toProductList' data-id='{{item.id}}' data-name='{{item.name}}' >
@@ -10,14 +17,16 @@
   </view>
 
   <view class='main_layout' bindtouchmove="tap_drag" bindtouchend="tap_end" bindtouchstart="tap_start" style='left:{{mainPageLeft}}rpx;'animation='{{animationData}}'>
+  <view style='width:100%;overflow: hidden;'>
     <view class='product_grid' wx:for='{{list}}'>
       <view class='product_item'  bindtap='toDetail' data-id='{{item.id}}' data-name='{{item.title}}'>
         <image class='product_item_image' src='{{item.thumb}}' mode='scaleToFill'></image>
         <text class='product_item_name'>{{item.title}}</text>
       </view>
     </view>
-
+</view>
     <include src="../common/footer.wxml" />
   </view>
+</scroll-view>
 
 </view>

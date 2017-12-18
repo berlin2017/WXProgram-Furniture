@@ -11,6 +11,18 @@ Page({
     page:0,
   },
 
+  goMap: function () {
+    wx.navigateTo({
+      url: '../common/map',
+    })
+  },
+
+  call: function () {
+    wx.makePhoneCall({
+      phoneNumber: app.globalData.addressInfo.dianhua,
+    })
+  },
+
   toDetail: function (e) {
     var id = e.currentTarget.dataset.id;
     var name = e.currentTarget.dataset.name

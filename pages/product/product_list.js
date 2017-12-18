@@ -10,8 +10,20 @@ Page({
     page: 1,
     list: [],
     id:null,
-    datalist:[],
+    keyword:null,
     title:null,
+  },
+
+  goMap: function () {
+    wx.navigateTo({
+      url: '../common/map',
+    })
+  },
+
+  call: function () {
+    wx.makePhoneCall({
+      phoneNumber: app.globalData.addressInfo.dianhua,
+    })
   },
 
   /**
@@ -19,7 +31,7 @@ Page({
    */
   onLoad: function (options) {
     this.data.id = options.id;
-    this.data.datalist = options.list;
+    this.data.keyword = options.keyword;
     this.data.title = options.name;
     this.loadPage();
   },
@@ -33,10 +45,26 @@ Page({
     wx.setNavigationBarTitle({
       title: that.data.title,
     })
-    if (that.data.datalist != null) {
-      console.log(that.data.datalist);
-      that.setData({
-        list: that.data.datalist
+    if (that.data.keyword != null&&that.data.keyword!='undefined') {
+      wx.showLoading({
+        title: '搜索中',
+      })
+      wx.request({
+        url: 'https://hzy.api.szjisou.com/?service=App.Hong.Search',
+        data: {
+          siteid: '2',
+          keyword: that.data.keyword,
+        },
+        method: 'GET',
+        success: function (res) {
+          that.setData({
+            list: res.data.data.result
+          })
+          wx.hideLoading();
+        },
+        fail: function (res) {
+          wx.hideLoading();
+        }
       })
     } else {
       wx.request({

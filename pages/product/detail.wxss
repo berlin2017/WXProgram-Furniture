@@ -2,15 +2,62 @@
 @import "/wxParse/wxParse.wxss";
 @import "../common/footer.wxss";
 
-.detail_container{
-  padding: 10px;
+.detail_container {
   background: whitesmoke;
+  overflow: hidden;
+  width: 100%;
+}
+.wxParse-img{
+  width: 100%;
 }
 
 .nearbg-title {
-    background: #999;
-    color: #fff;
-    padding: .2rem;
-    font-size: 20px;
-    border-bottom: 1px solid #eee;
+  background: #999;
+  color: #fff;
+  padding: 0.2rem;
+  font-size: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.title_layout {
+  z-index: 10;
+  right: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-bottom: 0;
+  background-color: #f7f7f7;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.85);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.product_text {
+  font: bold;
+  font-size: 17px;
+  color: black;
+  line-height: 30px;
+}
+
+.title_name {
+  color: blue;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.title_from {
+  margin-left: 10px;
+  font-size: 12px;
+  float: left;
+  color: gray;
+}
+
+.title_time {
+  margin-left: 20px;
+  color: gray;
+  font-size: 12px;
+  float: left;
 }

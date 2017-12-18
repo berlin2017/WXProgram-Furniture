@@ -16,6 +16,17 @@ Page({
     }],
   },
 
+
+  daohang:function(){
+    wx.authorize({
+      scope: 'scope.userLocation',
+    })
+    wx.openLocation({
+      latitude: 31.4559400000,
+      longitude: 120.6428100000,
+      name:'苏州红状元家具',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -28,8 +39,7 @@ Page({
    */
   onReady: function () {
     this.setData({
-      // height: wx.getSystemInfoSync().windowHeight
-      height:1000
+      height: wx.getSystemInfoSync().windowHeight-80
     });
   },
 
