@@ -163,13 +163,38 @@ Page({
       title: '加载中...',
     })
     var that = this;
-
-    if (app.globalData.addressInfo) {
+    if (app.globalData.addressInfo != null) {
       that.setData({
         info: app.globalData.addressInfo
       })
+    } else {
+      wx.request({
+        url: "https://hzy.api.szjisou.com/?service=App.Hong.GetBase",
+        method: "POST",
+        data: {
+          service: "App.Hong.GetBase",
+          table: "2_block",
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success: function (res) {
+          that.setData({
+            info: res.data.data.result
+          })
+        },
+        fail: function (res) {
+
+        },
+        complete:function (res) {
+          wx.hideLoading();
+        }
+      })
     }
 
+    wx.showLoading({
+      title: '加载中...',
+    })
     wx.request({
       url: 'https://hzy.api.szjisou.com/?service=App.Hong.GetCategory',
       data: {
@@ -184,9 +209,16 @@ Page({
        
       },
       fail: function (res) {
+      },
+      complete:function(res){
+        wx.hideLoading();
       }
     })
 
+
+    wx.showLoading({
+      title: '加载中...',
+    })
     wx.request({
       url: 'https://hzy.api.szjisou.com/?service=App.Hong.Index',
       data: {
@@ -200,9 +232,11 @@ Page({
         });
       },
       fail: function (res) {
+      },
+      complete:function(res){
+        wx.hideLoading();
       }
     })
-    wx.hideLoading();
   },
 
   /**

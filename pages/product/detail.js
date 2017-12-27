@@ -84,12 +84,31 @@ Page({
    */
   onReady: function () {
     var that = this;
-
-    if (app.globalData.addressInfo) {
+    if (app.globalData.addressInfo != null) {
       that.setData({
         info: app.globalData.addressInfo
       })
-    } 
+    } else {
+      wx.request({
+        url: "https://hzy.api.szjisou.com/?service=App.Hong.GetBase",
+        method: "POST",
+        data: {
+          service: "App.Hong.GetBase",
+          table: "2_block",
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success: function (res) {
+          that.setData({
+            info: res.data.data.result
+          })
+        },
+        fail: function (res) {
+
+        },
+      })
+    }
   },
 
   /**

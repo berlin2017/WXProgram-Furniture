@@ -14,5 +14,6 @@
       <view class='news_item_line'></view>
     </view>
   </view>
+    <view class='loadmore' bindtap='loadmore'>点击加载更多</view>
   <include src="../common/footer.wxml"/>
 </view>

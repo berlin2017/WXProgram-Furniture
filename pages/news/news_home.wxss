@@ -37,3 +37,13 @@
   height: 2px;
   width: 100%;
 }
+
+.loadmore{
+  background: white;
+  border: none;
+  width: 100%;
+  border-width: 0px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

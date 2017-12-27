@@ -8,32 +8,25 @@ Page({
   data: {
     info: {},
     homeInfo:{},
-    imgUrls: [
-      'http://fuguangjun.0512iis.com/images/dianshigui.jpg',
-      'http://fuguangjun.0512iis.com/images/zhu3.jpg',
-      'http://fuguangjun.0512iis.com/images/cuxiao.jpg',
-      'http://fuguangjun.0512iis.com/images/qiaotouan.jpg'
-    ],
-
     navigations: [
       {
         index: 0,
-        image: 'http://fuguangjun.0512iis.com/images/i5.png',
+        image: '../../resources/images/1.jpg',
         title: '公司简介',
       },
       {
         index: 1,
-        image: 'http://fuguangjun.0512iis.com/images/i8.png',
+        image: '../../resources/images/2.jpg',
         title: '新闻动态',
       },
       {
         index: 2,
-        image: 'http://fuguangjun.0512iis.com/images/i3.png',
+        image: '../../resources/images/3.jpg',
         title: '产品分类',
       },
       {
         index: 3,
-        image: 'http://fuguangjun.0512iis.com/images/i11.png',
+        image: '../../resources/images/4.jpg',
         title: '联系电话',
       },
     ],
@@ -128,6 +121,26 @@ Page({
     if (app.globalData.addressInfo!=null) {
       that.setData({
         info: app.globalData.addressInfo
+      })
+    }else{
+      wx.request({
+        url: "https://hzy.api.szjisou.com/?service=App.Hong.GetBase",
+        method: "POST",
+        data: {
+          service: "App.Hong.GetBase",
+          table: "2_block",
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success: function (res) {
+          that.setData({
+            info: res.data.data.result
+          })
+        },
+        fail: function (res) {
+
+        },
       })
     }
     this.loadPage();

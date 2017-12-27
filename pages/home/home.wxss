@@ -173,7 +173,7 @@
 
 .content_item_iamge {
   width: 100%;
-  opacity: 0.3;
+  /* opacity: 0.3; */
   height: 8rem !important;
 }
 

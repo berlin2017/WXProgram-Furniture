@@ -36,6 +36,11 @@ Page({
     this.loadPage();
   },
 
+  loadmore:function(){
+    this.data.page ++;
+    this.loadPage();
+  },
+
   loadPage:function(){
     var that = this;
     
@@ -57,8 +62,17 @@ Page({
         },
         method: 'GET',
         success: function (res) {
+          if(that.data.page == 1){
+            that.data.list = new Array();
+          }
+          if (!res.data.data.result || res.data.data.result.length <= 0) {
+            wx.showToast({
+              title: '没有更多数据',
+            })
+          }
+          var arr = that.data.list.concat(res.data.data.result);
           that.setData({
-            list: res.data.data.result
+            list: arr
           })
           wx.hideLoading();
         },
@@ -77,9 +91,19 @@ Page({
         },
         method: 'GET',
         success: function (res) {
+          if (that.data.page == 1) {
+            that.data.list = new Array();
+          }
+          if (!res.data.data.result || res.data.data.result.length<=0){
+            wx.showToast({
+              title: '没有更多数据',
+            })
+          }
+          var arr = that.data.list.concat(res.data.data.result);
           that.setData({
-            list: res.data.data.result
+            list: arr
           })
+         
         }
       })
     }
@@ -96,9 +120,29 @@ Page({
    */
   onReady: function () {
     var that = this;
-    if (app.globalData.addressInfo) {
+    if (app.globalData.addressInfo != null) {
       that.setData({
         info: app.globalData.addressInfo
+      })
+    } else {
+      wx.request({
+        url: "https://hzy.api.szjisou.com/?service=App.Hong.GetBase",
+        method: "POST",
+        data: {
+          service: "App.Hong.GetBase",
+          table: "2_block",
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success: function (res) {
+          that.setData({
+            info: res.data.data.result
+          })
+        },
+        fail: function (res) {
+
+        },
       })
     }
   },
@@ -128,6 +172,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    this.data.page = 1;
     this.loadPage();
     wx.stopPullDownRefresh();
   },
