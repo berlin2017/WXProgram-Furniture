@@ -33,7 +33,7 @@
     </view> -->
     <view class="content" style="background-color:#fff">
       <view class="content_grid" wx:for="{{homeInfo.nav}}">
-        <view class="content_grid_item" bindtap='toProductList'data-id='{{item.id}}' data-name='{{item.name}}'>
+        <view class="content_grid_item" bindtap='toProductList' data-url='{{item.url}}' data-name='{{item.name}}'>
           <image class="content_item_iamge" src="{{item.thumb}}" mode='widthFix'></image>
           <view class="content_item_text">{{item.name}}</view>
         </view>

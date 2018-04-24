@@ -82,10 +82,10 @@ Page({
   },
 
   toProductList:function(e){
-    var id = e.currentTarget.dataset.id;
+    var url = e.currentTarget.dataset.url;
     var name = e.currentTarget.dataset.name;
     wx.navigateTo({
-      url: '../product/product_list'+'?id='+id+'&name='+name,
+      url: '../product/product_list?'+url+'&name='+name,
     })
   },
 

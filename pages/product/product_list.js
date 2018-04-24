@@ -30,7 +30,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.id = options.id;
+    if (options.category){
+      this.data.id = options.category;
+    }else{
+      this.data.id = options.id;
+    }
     this.data.keyword = options.keyword;
     this.data.title = options.name;
     this.loadPage();
